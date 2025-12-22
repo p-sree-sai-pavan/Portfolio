@@ -1,0 +1,412 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap');
+
+@font-face {
+  font-family: "Bacley";
+  src: url("Bacley DEMO.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #000;
+  color: #f4f3ee;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.442);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 2rem;
+  z-index: 1000;
+}
+
+.name {
+  font-family: "Bacley", sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navcomponents ul {
+  font-size: large;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  gap: 5.5rem;
+}
+
+.navcomponents a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navcomponents a:hover {
+  color: #f4f3ee;
+}
+
+/* --- HERO SECTION --- */
+.herosection {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0px;
+  /* padding: 0 5%;           */
+  background-color: #000;
+  overflow: hidden;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.greeting {
+  color: #ffbd39;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 0rem;
+  text-transform: uppercase;
+}
+.main-title {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.highlight {
+  color: #ffbd39;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #ccc;
+  font-weight: 400;
+  margin-bottom: 0rem;
+}
+
+.homebuttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background-color: #ffbd39;
+  color: black;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.homebuttons button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-right: 1rem;
+  margin-left: 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.herosection h1 {
+  text-align: left;
+  font-family: "Bacley", sans-serif;
+  font-size: 5.5rem;
+  margin: 0rem 0;
+}
+
+.homebuttons {
+  margin-top: 1.5rem;
+}
+
+.homebuttons button:hover {
+  background: #555;
+}
+
+section {
+  padding: 4rem 2rem;
+}
+
+.projectcard {
+  background: #111;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.projecthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.projectlinks a {
+  margin-right: 1rem;
+  color: #f4f3ee;
+  text-decoration: none;
+}
+
+.projectlinks a:hover {
+  text-decoration: underline;
+}
+
+.contact {
+  text-align: center;
+}
+.contactlinks a {
+  display: inline-block;
+  margin: 0.5rem;
+  color: #f4f3ee;
+  text-decoration: none;
+}
+.contactlinks a:hover {
+  text-decoration: underline;
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+  gap: 10vw;
+  justify-content: center;
+}
+
+.aboutsection {
+  display: flex;
+  flex-direction: column;
+  max-width: 40vw;
+  justify-content: center;
+}
+
+.aboutachivements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.aboutsection h3 {
+  margin-bottom: 1.5rem;
+  color: #ffbd39;
+  font-family: "Bacley", sans-serif;
+}
+
+.aboutsection h1 {
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.abouteducation h3 {
+  margin: 0.5rem 0;
+  color: #ffbd39;
+}
+
+.aboutexperience h3 {
+  margin: 0.5rem 0;
+  color: #ffbd39;
+}
+
+.aboutrating h3 {
+  margin: 0.5rem 0;
+  color: #ffbd39;
+}
+
+.techstacks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vite-grid {
+  display: flex;
+  flex-direction: row;
+  width: 65%;
+  align-items: center;
+  justify-content: flex start;
+  overflow-x: auto;
+  gap: 10px;
+  scrollbar-width: none;
+}
+
+.tech-tile {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: #111;
+  border-radius: 1.5rem;
+  font-size: 3rem;
+  text-shadow: 0 0 5px var(--color);
+  transition: all 0.75s;
+}
+
+.tech-tile:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px var(--color);
+}
+
+.projects {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  position: relative;
+  font-family: "Bacley", sans-serif;
+}
+
+.projectcontainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.projectcard {
+  background: #111;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all 0.75s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.projectcard:hover {
+  transform: translateY(-8px); /* pop-out effect */
+  box-shadow: 0 0 20px #ffbd39; /* glowing hover */
+}
+
+.projecthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.projecthead h3 {
+  font-size: 1.3rem;
+  color: #ffbd39;
+  margin: 0;
+}
+.date {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+.projectcard p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #ddd;
+}
+.projectcard ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+.techused {
+  background: #222;
+  border: 1px solid #353535;
+  border-radius: 5px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+.projectlinks a {
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.projectlinks a:hover {
+  text-shadow: 0 0 5px #ffbd39;
+}
+
+.contact {
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  color: #f4f3ee;
+}
+
+.contact h5 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  color: #ffbd39;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="name">
+            <h2>Portfolio</h2>
+        </div>
+        <div class="navcomponents">
+            <ul>
+                <li class="navgroups"><a href="#home">Home</a></li>
+                <li class="navgroups"><a href="#about">About</a></li>
+                <li class="navgroups"><a href="#projects">Projects</a></li>
+                <li class="navgroups"><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="herosection">
+    <div class="hero-content">
+        <h3 class="greeting">HELLO!</h3>
+        <h1 class="main-title">
+            I'm <span class="highlight">Pittala</span><br>
+            <span class="highlight">Sree Sai Pavan.</span>
+        </h1>
+        <h2 class="subtitle">Frontend Web Developer</h2>
+        
+        <div class="homebuttons">
+            <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">My Projects</button>
+            <button class="btn-secondary" class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="your-photo.jpg" alt="Profile Picture"> 
+    </div>
+</section>
+
+    <section id="about" class="about">
+        <div class="aboutsection">
+            <h3>ABOUT:</h3>
+            <h1>Engineering digital experiences with purpose.</h1>
+            <p>I am a Frontend Web Developer focusing on building clean, accessible, and performant web applications. My journey involves a blend of academic rigor at IIT Guwahati and practical problem-solving through branding and development roles.</p>
+        </div>
+        <div class="aboutachivements">
+            <div class="abouteducation">
+                <h3>Education</h3>
+                <h4>Indian Institute of Technology, Guwahati</h4>
+                <p>B.Tech in Electronics and Communication Engineering | 2024 - Present</p>
+            </div>
+            <div class="aboutexperience">
+                <h3>Experience</h3>
+                <h4>Junior Web - Developer</h4>
+                <p>at students Web Commitee | 2025 - Present</p>
+            </div>
+            <div class="aboutrating">
+                <h3>1130 Rating</h3>
+                <h4>Codeforces</h4>
+                <p>givving contests on codeforces | 2025 - Present</p>
+            </div>
+        </div>
+    </section>
+
+   <section class="techstacks">
+       <h2>Frameworks & Tools</h2>
+       <section class="vite-grid">
+           <div class="tech-tile" style="--color: #5ac5ff">
+            <i class="devicon-cplusplus-plain colored"></i>
+           </div>
+           <div class="tech-tile" style="--color: #fff151">
+               <i class="devicon-python-plain colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #5ac5ff">
+                <i class="devicon-c-plain colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #61DAFB">
+                <i class="devicon-react-original colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #F7DF1E">
+                <i class="devicon-javascript-plain colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #E34F26">
+                <i class="devicon-html5-plain colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #2965f1">
+                <i class="devicon-css3-plain colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #F05032">
+                <i class="devicon-git-plain colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #6fdbff">
+                <i class="devicon-numpy-plain colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #a48dff">
+                <i class="devicon-pandas-plain colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #61DAFB">
+                <i class="devicon-matplotlib-plain colored"></i>
+            </div>
+        
+       </section>
+</section>
+
+
+    <section id="projects" class="projects">
+        <h1>Featured Projects</h1>
+        <div class="projectcontainer">
+            <div class="projectcard">
+                <div class="projecthead">
+                    <h3>Circuit Analyser</h3>
+                    <div class="date">Nov - 2025</div>
+                </div>
+                <p>– Developed a web application for analyzing electrical circuits with instant voltage and current   calculations using React frontend, Node.js backend, and Python computational engine.</p>
+                <p>– Implemented graph-based algorithms and equation solvers integrated with the backend API, returning formatted mathematical expressions and dynamically generated circuit plots.</p>
+                <ul>
+                    <li class="techused">HTML</li>
+                    <li class="techused">CSS</li>
+                    <li class="techused">JS</li>
+                    <li class="techused">React</li>
+                    <li class="techused">python</li>
+                </ul>
+                <div class="projectlinks">
+                    <a href="#circuitsolver">live demo</a>
+                    <a href="#github">Git Hub</a>
+                </div>
+            </div>
+            <div class="projectcard">
+                <div class="projecthead">
+                    <h3>Algo Visualiser</h3>
+                    <div class="date">Dec - 2025</div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, earum?</p>
+                <ul>
+                    <li class="techused">HTML</li>
+                    <li class="techused">CSS</li>
+                    <li class="techused">JS</li>
+                    <li class="techused">React</li>
+                </ul>
+                <div class="projectlinks">
+                    <a href="#algovisualiser">live demo</a>
+                    <a href="#github">Git Hub</a>
+                </div>
+            </div>
+            <div class="projectcard">
+                <div class="projecthead">
+                    <h3>Portfolio</h3>
+                    <div class="date">dec - 2025</div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, earum?</p>
+                <ul>
+                    <li class="techused">HTML</li>
+                    <li class="techused">CSS</li>
+                    <li class="techused">JS</li>
+                </ul>
+                <div class="projectlinks">
+                    <a href="#portfolio">live demo</a>
+                    <a href="#github">Git Hub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h5>Get in touch</h5>
+        <h2>Let's work together</h2>
+        <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open.</p>
+        <div class="contactlinks">
+            <a href="mailto:pavan90507@gmail.com">
+                <i class="fa-solid fa-envelope"></i> pavan90507@gmail.com
+            </a>
+            <a href="https://github.com/p-sree-sai-pavan">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="www.linkedin.com/in/sree-sai-pavan-pittala-61a284365">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="tel:+917893390507" class="contact-link">
+                <i class="fa-solid fa-phone"></i> +91 78933 90507
+            </a>
+            <footer>
+                &copy; 2025 Pittala Sree Sai Pavan. All rights reserved.
+            </footer>
+    </div>
+    </section>
+</body>
+</html>
