@@ -46,12 +46,21 @@ body {
   font-weight: bold;
 }
 
+.navcomponents {
+  display: flex;
+  align-items: center;
+}
+
 .navcomponents ul {
   font-size: large;
   font-weight: 600;
   list-style: none;
   display: flex;
   gap: 5.5rem;
+}
+
+.navcomponents ul li {
+  margin: 0;
 }
 
 .navcomponents a {
@@ -510,8 +519,10 @@ section {
     right: -100%;
     width: 70%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.98);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
