@@ -64,7 +64,6 @@ body {
   color: #f4f3ee;
 }
 
-/* --- HERO SECTION --- */
 .herosection {
   height: 100vh;
   display: flex;
@@ -72,7 +71,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-right: 0px;
-  /* padding: 0 5%;           */
+
   background-color: #000;
   overflow: hidden;
 }
@@ -105,6 +104,7 @@ body {
   margin-bottom: 0rem;
   text-transform: uppercase;
 }
+
 .main-title {
   font-size: 4rem;
   line-height: 1.1;
@@ -208,12 +208,14 @@ section {
 .contact {
   text-align: center;
 }
+
 .contactlinks a {
   display: inline-block;
   margin: 0.5rem;
   color: #f4f3ee;
   text-decoration: none;
 }
+
 .contactlinks a:hover {
   text-decoration: underline;
 }
@@ -333,8 +335,8 @@ section {
 }
 
 .projectcard:hover {
-  transform: translateY(-8px); /* pop-out effect */
-  box-shadow: 0 0 20px #ffbd39; /* glowing hover */
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px #ffbd39;
 }
 
 .projecthead {
@@ -343,20 +345,24 @@ section {
   align-items: center;
   margin-bottom: 1rem;
 }
+
 .projecthead h3 {
   font-size: 1.3rem;
   color: #ffbd39;
   margin: 0;
 }
+
 .date {
   font-size: 0.9rem;
   color: #aaa;
 }
+
 .projectcard p {
   margin-bottom: 1rem;
   font-size: 0.95rem;
   color: #ddd;
 }
+
 .projectcard ul {
   list-style: none;
   display: flex;
@@ -365,6 +371,7 @@ section {
   margin: 0 0 1rem 0;
   padding: 0;
 }
+
 .techused {
   background: #222;
   border: 1px solid #353535;
@@ -372,12 +379,14 @@ section {
   padding: 0.3rem 0.6rem;
   font-size: 0.8rem;
 }
+
 .projectlinks a {
   margin-right: 1rem;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
+
 .projectlinks a:hover {
   text-shadow: 0 0 5px #ffbd39;
 }
@@ -412,3 +421,389 @@ section {
   color: #ccc;
 }
 
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #ffbd39;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+@media screen and (max-width: 992px) {
+  .navbar {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .navcomponents ul {
+    gap: 2.5rem;
+  }
+
+  .herosection {
+    padding: 0 3%;
+  }
+
+  .hero-content {
+    max-width: 50%;
+  }
+
+  .herosection h1 {
+    font-size: 4rem;
+  }
+
+  .main-title {
+    font-size: 3rem;
+  }
+
+  .about {
+    gap: 5vw;
+  }
+
+  .aboutsection {
+    max-width: 45vw;
+  }
+
+  .vite-grid {
+    width: 80%;
+  }
+
+  .projectcontainer {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navcomponents {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+    z-index: 1000;
+  }
+
+  .navcomponents.active {
+    right: 0;
+  }
+
+  .navcomponents ul {
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .navcomponents ul li a {
+    font-size: 1.3rem;
+  }
+
+  .herosection {
+    flex-direction: column-reverse;
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 5% 50px 5%;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-image {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .hero-image img {
+    max-height: 45vh;
+    max-width: 80%;
+  }
+
+  .herosection h1 {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+
+  .main-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .homebuttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .about {
+    flex-direction: column;
+    gap: 3rem;
+    padding: 4rem 1.5rem;
+  }
+
+  .aboutsection {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .aboutsection h1 {
+    font-size: 1.8rem;
+  }
+
+  .aboutachivements {
+    width: 100%;
+    text-align: left;
+  }
+
+  .techstacks {
+    padding: 2rem 1rem;
+  }
+
+  .techstacks h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .vite-grid {
+    width: 95%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tech-tile {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+
+  .projects h1 {
+    font-size: 2rem;
+  }
+
+  .projectcontainer {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .projectcard {
+    padding: 1rem 1.5rem;
+  }
+
+  .projecthead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .projecthead h3 {
+    font-size: 1.1rem;
+  }
+
+  .contact h2 {
+    font-size: 2rem;
+  }
+
+  .contactlinks {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contactlinks a {
+    display: block;
+    margin: 0;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .name h2 {
+    font-size: 1.3rem;
+  }
+
+  .navcomponents {
+    width: 100%;
+  }
+
+  .herosection {
+    padding: 80px 4% 40px 4%;
+  }
+
+  .herosection h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .greeting {
+    font-size: 0.85rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-image img {
+    max-height: 35vh;
+    max-width: 90%;
+  }
+
+  .homebuttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .homebuttons button {
+    width: 100%;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+  }
+
+  .about {
+    padding: 3rem 1rem;
+  }
+
+  .aboutsection h1 {
+    font-size: 1.5rem;
+  }
+
+  .aboutsection p {
+    font-size: 0.9rem;
+  }
+
+  .abouteducation h4,
+  .aboutexperience h4,
+  .aboutrating h4 {
+    font-size: 1rem;
+  }
+
+  .tech-tile {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    border-radius: 1rem;
+  }
+
+  .projects {
+    padding: 3rem 1rem;
+  }
+
+  .projects h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .projectcard p {
+    font-size: 0.85rem;
+  }
+
+  .techused {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .projectlinks a {
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+  }
+
+  .contact {
+    padding: 3rem 1rem;
+  }
+
+  .contact h5 {
+    font-size: 0.8rem;
+  }
+
+  .contact h2 {
+    font-size: 1.6rem;
+  }
+
+  .contact p {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+
+  .contactlinks a {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    margin-top: 2rem;
+  }
+}
+
+
+@media (hover: none) and (pointer: coarse) {
+  .tech-tile:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .projectcard:hover {
+    transform: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .btn-primary:active,
+  .btn-secondary:active {
+    transform: scale(0.98);
+  }
+}

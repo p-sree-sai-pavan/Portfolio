@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
@@ -9,12 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="name">
             <h2>Portfolio</h2>
         </div>
-        <div class="navcomponents">
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <div class="navcomponents" id="navcomponents">
             <ul>
                 <li class="navgroups"><a href="#home">Home</a></li>
                 <li class="navgroups"><a href="#about">About</a></li>
@@ -25,30 +32,36 @@
     </nav>
 
     <section id="home" class="herosection">
-    <div class="hero-content">
-        <h3 class="greeting">HELLO!</h3>
-        <h1 class="main-title">
-            I'm <span class="highlight">Pittala</span><br>
-            <span class="highlight">Sree Sai Pavan.</span>
-        </h1>
-        <h2 class="subtitle">Frontend Web Developer</h2>
-        
-        <div class="homebuttons">
-            <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">My Projects</button>
-            <button class="btn-secondary" class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
-        </div>
-    </div>
+        <div class="hero-content">
+            <h3 class="greeting">HELLO!</h3>
+            <h1 class="main-title">
+                I'm <span class="highlight">Pittala</span><br>
+                <span class="highlight">Sree Sai Pavan.</span>
+            </h1>
+            <h2 class="subtitle">Frontend Web Developer</h2>
 
-    <div class="hero-image">
-        <img src="your-photo.jpg" alt="Profile Picture"> 
-    </div>
-</section>
+            <div class="homebuttons">
+                <button class="btn-primary"
+                    onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">My
+                    Projects</button>
+                <button class="btn-secondary" class="btn-primary"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="your-photo.jpg" alt="Profile Picture">
+        </div>
+    </section>
 
     <section id="about" class="about">
         <div class="aboutsection">
             <h3>ABOUT:</h3>
             <h1>Building thoughtful web experiences while learning.</h1>
-            <p>I'm a first-year B.Tech student at IIT Guwahati exploring web development through hands-on projects. I enjoy creating interactive applications that solve real problems, from algorithm visualizers to circuit analyzers. Currently learning modern web technologies while balancing academics and contributing to institute web projects.</p>
+            <p>I'm a first-year B.Tech student at IIT Guwahati exploring web development through hands-on projects. I
+                enjoy creating interactive applications that solve real problems, from algorithm visualizers to circuit
+                analyzers. Currently learning modern web technologies while balancing academics and contributing to
+                institute web projects.</p>
         </div>
         <div class="aboutachivements">
             <div class="abouteducation">
@@ -69,14 +82,14 @@
         </div>
     </section>
 
-   <section class="techstacks">
-       <h2>Frameworks & Tools</h2>
-       <section class="vite-grid">
-           <div class="tech-tile" style="--color: #5ac5ff">
-            <i class="devicon-cplusplus-plain colored"></i>
-           </div>
-           <div class="tech-tile" style="--color: #fff151">
-               <i class="devicon-python-plain colored"></i>
+    <section class="techstacks">
+        <h2>Frameworks & Tools</h2>
+        <section class="vite-grid">
+            <div class="tech-tile" style="--color: #5ac5ff">
+                <i class="devicon-cplusplus-plain colored"></i>
+            </div>
+            <div class="tech-tile" style="--color: #fff151">
+                <i class="devicon-python-plain colored"></i>
             </div>
             <div class="tech-tile" style="--color: #5ac5ff">
                 <i class="devicon-c-plain colored"></i>
@@ -105,9 +118,9 @@
             <div class="tech-tile" style="--color: #61DAFB">
                 <i class="devicon-matplotlib-plain colored"></i>
             </div>
-        
-       </section>
-</section>
+
+        </section>
+    </section>
 
 
     <section id="projects" class="projects">
@@ -118,8 +131,10 @@
                     <h3>Circuit Analyser</h3>
                     <div class="date">Nov - 2025</div>
                 </div>
-                <p>– Developed a web application for analyzing electrical circuits with instant voltage and current   calculations using React frontend, Node.js backend, and Python computational engine.</p>
-                <p>– Implemented graph-based algorithms and equation solvers integrated with the backend API, returning formatted mathematical expressions and dynamically generated circuit plots.</p>
+                <p>– Developed a web application for analyzing electrical circuits with instant voltage and current
+                    calculations using React frontend, Node.js backend, and Python computational engine.</p>
+                <p>– Implemented graph-based algorithms and equation solvers integrated with the backend API, returning
+                    formatted mathematical expressions and dynamically generated circuit plots.</p>
                 <ul>
                     <li class="techused">HTML</li>
                     <li class="techused">CSS</li>
@@ -136,7 +151,9 @@
                     <h3>Algo Visualiser</h3>
                     <div class="date">Dec - 2025</div>
                 </div>
-                <p>The Sorting Algorithm Visualizer is an educational web application designed to help students, educators, and developers understand how different sorting algorithms work. Watch algorithms sort data step-by-step with smooth animations, adjustable speed controls, and interactive features.</p>
+                <p>The Sorting Algorithm Visualizer is an educational web application designed to help students,
+                    educators, and developers understand how different sorting algorithms work. Watch algorithms sort
+                    data step-by-step with smooth animations, adjustable speed controls, and interactive features.</p>
                 <ul>
                     <li class="techused">HTML</li>
                     <li class="techused">CSS</li>
@@ -153,7 +170,10 @@
                     <h3>Portfolio</h3>
                     <div class="date">Dec - 2025</div>
                 </div>
-                <p>A personal portfolio website for Pittala Sree Sai Pavan, a Frontend Web Developer and B.Tech ECE student at IIT Guwahati. Built with HTML5, CSS3, featuring a modern dark theme, responsive design, and smooth scroll navigation. Showcases skills, projects, education, and experience with an elegant minimal UI.</p>
+                <p>A personal portfolio website for Pittala Sree Sai Pavan, a Frontend Web Developer and B.Tech ECE
+                    student at IIT Guwahati. Built with HTML5, CSS3, featuring a modern dark theme, responsive design,
+                    and smooth scroll navigation. Showcases skills, projects, education, and experience with an elegant
+                    minimal UI.</p>
                 <ul>
                     <li class="techused">HTML</li>
                     <li class="techused">CSS</li>
@@ -168,8 +188,10 @@
                     <h3>HabitFlow</h3>
                     <div class="date">Dec - 2025</div>
                 </div>
-                <p>being a Vibecoding enthusiast, Designed a modern web app that helps users build consistent routines through gamification.</p>
-                <p> Implemented a GitHub‑style activity heatmap to track daily progress and streaks.Focused on intuitive design and responsive layouts for a seamless user experience across devices.</p>
+                <p>being a Vibecoding enthusiast, Designed a modern web app that helps users build consistent routines
+                    through gamification.</p>
+                <p> Implemented a GitHub‑style activity heatmap to track daily progress and streaks.Focused on intuitive
+                    design and responsive layouts for a seamless user experience across devices.</p>
                 <ul>
                     <li class="techused">HTML</li>
                     <li class="techused">CSS</li>
@@ -187,7 +209,9 @@
                     <h3>RecipeFinder</h3>
                     <div class="date">Dec - 2025</div>
                 </div>
-                <p>Recipe Finder is a sleek, responsive web application that helps you discover delicious recipes from around the world. Powered by TheMealDB API, it offers a seamless experience to browse, search, and explore recipes with detailed ingredients and cooking instructions.</p>
+                <p>Recipe Finder is a sleek, responsive web application that helps you discover delicious recipes from
+                    around the world. Powered by TheMealDB API, it offers a seamless experience to browse, search, and
+                    explore recipes with detailed ingredients and cooking instructions.</p>
                 <ul>
                     <li class="techused">HTML</li>
                     <li class="techused">CSS</li>
@@ -205,7 +229,9 @@
                     <h3>MovieWebsite</h3>
                     <div class="date">Dec - 2025</div>
                 </div>
-                <p>A fully responsive, Netflix-inspired movie discovery platform built entirely with vanilla HTML, CSS, and JavaScript. This project demonstrates modern frontend development skills without relying on any external frameworks.</p>
+                <p>A fully responsive, Netflix-inspired movie discovery platform built entirely with vanilla HTML, CSS,
+                    and JavaScript. This project demonstrates modern frontend development skills without relying on any
+                    external frameworks.</p>
                 <ul>
                     <li class="techused">HTML</li>
                     <li class="techused">CSS</li>
@@ -222,7 +248,8 @@
     <section id="contact" class="contact">
         <h5>Get in touch</h5>
         <h2>Let's work together</h2>
-        <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open.</p>
+        <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is
+            always open.</p>
         <div class="contactlinks">
             <a href="mailto:pavan90507@gmail.com">
                 <i class="fa-solid fa-envelope"></i> pavan90507@gmail.com
@@ -239,7 +266,27 @@
             <footer>
                 &copy; 2025 Pittala Sree Sai Pavan. All rights reserved.
             </footer>
-    </div>
+        </div>
     </section>
+
+    <script>
+        // Mobile Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navcomponents = document.getElementById('navcomponents');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navcomponents.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.navcomponents a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navcomponents.classList.remove('active');
+            });
+        });
+    </script>
 </body>
+
 </html>
