@@ -4,15 +4,13 @@
 
 ### *Frontend Web Developer*
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Click_Here-ffbd39?style=for-the-badge)](https://your-portfolio-link.com)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Click_Here-ffbd39?style=for-the-badge)](https://p-sree-sai-pavan.github.io/Portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sree-sai-pavan-pittala-61a284365)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/p-sree-sai-pavan)
 
 <br>
 
-![Portfolio Preview](https://via.placeholder.com/800x400/000000/ffbd39?text=Portfolio+Preview)
-
-*Replace the above with an actual screenshot of your portfolio*
+![Portfolio Preview](pic.png)
 
 </div>
 
