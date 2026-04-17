@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111;
+      --surface2: #1a1a1a;
+      --border: #2a2a2a;
+      --accent: #ffbd39;
+      --accent-dim: rgba(255,189,57,0.1);
+      --text: #f4f3ee;
+      --muted: #888;
+      --danger: #ff4444;
+      --success: #44ff88;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ── Login ── */
+    #login-screen {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; min-height: 100vh; gap: 1.5rem;
+    }
+    #login-screen h1 { font-size: 2rem; color: var(--accent); }
+    #login-screen p { color: var(--muted); font-size: 0.9rem; max-width: 360px; text-align: center; }
+    .login-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem; width: 360px; display: flex; flex-direction: column; gap: 1rem;
+    }
+    .login-box label { font-size: 0.85rem; color: var(--muted); }
+    .login-box input {
+      width: 100%; padding: 0.75rem 1rem; background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); font-family: monospace; font-size: 0.9rem;
+    }
+    .login-box input:focus { outline: 1px solid var(--accent); }
+
+    /* ── App Shell ── */
+    #app { display: none; min-height: 100vh; }
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; height: 56px;
+      background: rgba(10,10,10,0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; z-index: 100;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 1rem; }
+    .topbar-left span { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--muted);
+      transition: background 0.3s;
+    }
+    .status-dot.saved { background: var(--success); }
+    .status-dot.error { background: var(--danger); }
+    #status-text { font-size: 0.8rem; color: var(--muted); }
+
+    .layout { display: flex; margin-top: 56px; min-height: calc(100vh - 56px); }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      width: 220px; background: var(--surface); border-right: 1px solid var(--border);
+      padding: 1.5rem 0; position: fixed; top: 56px; bottom: 0; overflow-y: auto;
+    }
+    .sidebar-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1.5rem; cursor: pointer; transition: all 0.2s;
+      color: var(--muted); font-size: 0.9rem; border-left: 3px solid transparent;
+    }
+    .sidebar-item:hover { color: var(--text); background: var(--surface2); }
+    .sidebar-item.active { color: var(--accent); background: var(--accent-dim); border-left-color: var(--accent); }
+
+    /* ── Main Content ── */
+    .main { margin-left: 220px; padding: 2rem; flex: 1; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ── Form Styles ── */
+    .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;
+    }
+    .card-title { font-size: 1rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-row.single { grid-template-columns: 1fr; }
+    .field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .field label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .field input, .field textarea {
+      padding: 0.65rem 0.9rem; background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); font-family: 'Outfit', sans-serif; font-size: 0.9rem;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+    .field textarea { resize: vertical; min-height: 90px; }
+
+    /* ── Buttons ── */
+    .btn {
+      padding: 0.6rem 1.2rem; border: none; border-radius: 8px;
+      cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.9rem;
+      font-weight: 600; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn-accent { background: var(--accent); color: #000; }
+    .btn-accent:hover { background: #ffc94d; transform: translateY(-1px); }
+    .btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
+    .btn-danger:hover { background: rgba(255,68,68,0.1); }
+    .btn-sm { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+    .btn-publish {
+      background: var(--accent); color: #000; padding: 0.6rem 1.5rem;
+      border: none; border-radius: 8px; cursor: pointer; font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem; font-weight: 700; transition: all 0.2s;
+    }
+    .btn-publish:hover { background: #ffc94d; }
+    .btn-publish:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Project Cards in Admin ── */
+    .project-admin-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem; margin-bottom: 1rem;
+    }
+    .project-admin-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;
+    }
+    .project-admin-title { font-weight: 600; font-size: 1rem; }
+    .project-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .toggle-switch {
+      position: relative; display: inline-block; width: 44px; height: 24px;
+    }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider {
+      position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--border); border-radius: 24px; transition: 0.3s;
+    }
+    .toggle-slider:before {
+      content: ''; position: absolute; height: 18px; width: 18px;
+      left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.3s;
+    }
+    .toggle-switch input:checked + .toggle-slider { background: var(--accent); }
+    .toggle-switch input:checked + .toggle-slider:before { transform: translateX(20px); }
+
+    /* ── GitHub Repo Picker ── */
+    .repo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .repo-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem; cursor: pointer; transition: all 0.2s;
+    }
+    .repo-card:hover { border-color: var(--accent); }
+    .repo-card.selected { border-color: var(--accent); background: var(--accent-dim); }
+    .repo-card h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .repo-card p { font-size: 0.8rem; color: var(--muted); }
+    .repo-meta { display: flex; gap: 1rem; margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); }
+    .repo-lang { display: flex; align-items: center; gap: 0.3rem; }
+    .lang-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    .lang-colors {
+      JavaScript: '#F7DF1E'; Python: '#3776AB'; HTML: '#E34F26';
+      CSS: '#1572B6'; TypeScript: '#3178C6'; default: '#888';
+    }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.5rem; z-index: 9999;
+      font-size: 0.9rem; display: flex; align-items: center; gap: 0.75rem;
+      transform: translateY(100px); opacity: 0; transition: all 0.3s;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.success { border-color: var(--success); }
+    .toast.error { border-color: var(--danger); }
+
+    /* ── Skills Editor ── */
+    .skills-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .skill-row {
+      display: grid; grid-template-columns: 1fr 2fr 120px 40px;
+      gap: 0.75rem; align-items: center;
+      background: var(--surface2); border-radius: 8px; padding: 0.75rem;
+    }
+    .color-preview {
+      width: 36px; height: 36px; border-radius: 8px; border: 2px solid var(--border);
+      cursor: pointer;
+    }
+
+    /* ── Loading ── */
+    .spinner {
+      width: 20px; height: 20px; border: 2px solid var(--border);
+      border-top-color: var(--accent); border-radius: 50%;
+      animation: spin 0.7s linear infinite; display: inline-block;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .empty-state {
+      text-align: center; padding: 3rem; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN ── -->
+<div id="login-screen">
+  <h1>⚡ Admin Portal</h1>
+  <p>Enter your GitHub Personal Access Token to manage your portfolio.</p>
+  <div class="login-box">
+    <div class="field">
+      <label>GitHub Username</label>
+      <input type="text" id="input-username" placeholder="p-sree-sai-pavan">
+    </div>
+    <div class="field">
+      <label>Repository Name</label>
+      <input type="text" id="input-repo" placeholder="Portfolio">
+    </div>
+    <div class="field">
+      <label>Personal Access Token (PAT)</label>
+      <input type="password" id="input-pat" placeholder="ghp_xxxxxxxxxxxx">
+    </div>
+    <small style="color:var(--muted);font-size:0.78rem">
+      Token needs <strong>repo</strong> scope. Never committed — stored in localStorage only.
+    </small>
+    <button class="btn btn-accent" onclick="login()">
+      <i class="fa-brands fa-github"></i> Connect
+    </button>
+    <div id="login-error" style="color:var(--danger);font-size:0.85rem;display:none"></div>
+  </div>
+</div>
+
+<!-- ── APP ── -->
+<div id="app">
+  <div class="topbar">
+    <div class="topbar-left">
+      <span>⚡ Portfolio Admin</span>
+      <div class="status-dot" id="status-dot"></div>
+      <span id="status-text">Ready</span>
+    </div>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <span id="topbar-user" style="color:var(--muted);font-size:0.85rem"></span>
+      <button class="btn-publish" id="publish-btn" onclick="publishToGitHub()">
+        <i class="fa-brands fa-github"></i> Publish Changes
+      </button>
+      <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="sidebar">
+      <div class="sidebar-item active" onclick="showPanel('hero')">
+        <i class="fa-solid fa-house"></i> Hero
+      </div>
+      <div class="sidebar-item" onclick="showPanel('about')">
+        <i class="fa-solid fa-user"></i> About
+      </div>
+      <div class="sidebar-item" onclick="showPanel('skills')">
+        <i class="fa-solid fa-code"></i> Skills
+      </div>
+      <div class="sidebar-item" onclick="showPanel('projects')">
+        <i class="fa-solid fa-folder"></i> Projects
+      </div>
+      <div class="sidebar-item" onclick="showPanel('repos')">
+        <i class="fa-brands fa-github"></i> GitHub Repos
+      </div>
+      <div class="sidebar-item" onclick="showPanel('contact')">
+        <i class="fa-solid fa-envelope"></i> Contact
+      </div>
+    </div>
+
+    <div class="main">
+
+      <!-- HERO -->
+      <div class="panel active" id="panel-hero">
+        <div class="section-title">Hero Section</div>
+        <div class="card">
+          <div class="form-row">
+            <div class="field">
+              <label>Greeting</label>
+              <input type="text" id="hero-greeting">
+            </div>
+            <div class="field">
+              <label>Subtitle / Role</label>
+              <input type="text" id="hero-subtitle">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>First Name (highlighted)</label>
+              <input type="text" id="hero-firstName">
+            </div>
+            <div class="field">
+              <label>Last Name / Full Name</label>
+              <input type="text" id="hero-lastName">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="panel" id="panel-about">
+        <div class="section-title">About Section</div>
+        <div class="card">
+          <div class="card-title">Bio</div>
+          <div class="form-row single">
+            <div class="field">
+              <label>Bio Text</label>
+              <textarea id="about-bio"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Education</div>
+          <div class="form-row single">
+            <div class="field">
+              <label>Institution</label>
+              <input type="text" id="about-edu-institution">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>Degree</label>
+              <input type="text" id="about-edu-degree">
+            </div>
+            <div class="field">
+              <label>Period</label>
+              <input type="text" id="about-edu-period">
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Experience</div>
+          <div class="form-row">
+            <div class="field">
+              <label>Role</label>
+              <input type="text" id="about-exp-role">
+            </div>
+            <div class="field">
+              <label>Place</label>
+              <input type="text" id="about-exp-place">
+            </div>
+          </div>
+          <div class="form-row single">
+            <div class="field">
+              <label>Period</label>
+              <input type="text" id="about-exp-period">
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Competitive Programming</div>
+          <div class="form-row">
+            <div class="field">
+              <label>Rating</label>
+              <input type="text" id="about-rating">
+            </div>
+            <div class="field">
+              <label>Platform</label>
+              <input type="text" id="about-platform">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>Description</label>
+              <input type="text" id="about-comp-desc">
+            </div>
+            <div class="field">
+              <label>Period</label>
+              <input type="text" id="about-comp-period">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="panel" id="panel-skills">
+        <div class="section-title">Skills / Tech Stack</div>
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+            <span style="color:var(--muted);font-size:0.85rem">Devicon class names — see <a href="https://devicon.dev" target="_blank" style="color:var(--accent)">devicon.dev</a></span>
+            <button class="btn btn-ghost btn-sm" onclick="addSkill()"><i class="fa-solid fa-plus"></i> Add Skill</button>
+          </div>
+          <div class="skills-list" id="skills-list"></div>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="panel" id="panel-projects">
+        <div class="section-title">Projects</div>
+        <div style="margin-bottom:1rem">
+          <button class="btn btn-accent btn-sm" onclick="addProject()"><i class="fa-solid fa-plus"></i> New Project</button>
+        </div>
+        <div id="projects-list"></div>
+      </div>
+
+      <!-- GITHUB REPOS -->
+      <div class="panel" id="panel-repos">
+        <div class="section-title">Import from GitHub</div>
+        <div class="card">
+          <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem">
+            Select repos to add as projects. Already-added projects are marked.
+          </p>
+          <button class="btn btn-ghost btn-sm" onclick="fetchRepos()">
+            <i class="fa-brands fa-github"></i> Fetch My Repos
+          </button>
+        </div>
+        <div id="repos-grid" class="repo-grid"></div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="panel" id="panel-contact">
+        <div class="section-title">Contact Info</div>
+        <div class="card">
+          <div class="form-row">
+            <div class="field">
+              <label>Email</label>
+              <input type="email" id="contact-email">
+            </div>
+            <div class="field">
+              <label>Phone</label>
+              <input type="text" id="contact-phone">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>GitHub URL</label>
+              <input type="url" id="contact-github">
+            </div>
+            <div class="field">
+              <label>LinkedIn URL</label>
+              <input type="url" id="contact-linkedin">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+  </div><!-- /layout -->
+</div><!-- /app -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── State ──────────────────────────────────────────────────────────────────
+  let GH = { pat: '', user: '', repo: '' };
+  let DATA = null;
+  let fileSHA = '';
+
+  // ── Auth ───────────────────────────────────────────────────────────────────
+  function login() {
+    const pat = document.getElementById('input-pat').value.trim();
+    const user = document.getElementById('input-username').value.trim();
+    const repo = document.getElementById('input-repo').value.trim();
+    if (!pat || !user || !repo) return showError('All fields required.');
+    GH = { pat, user, repo };
+    localStorage.setItem('admin_gh', JSON.stringify(GH));
+    initApp();
+  }
+
+  function logout() {
+    localStorage.removeItem('admin_gh');
+    location.reload();
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('login-error');
+    el.textContent = msg; el.style.display = 'block';
+  }
+
+  // ── Init ───────────────────────────────────────────────────────────────────
+  async function initApp() {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    document.getElementById('topbar-user').textContent = `${GH.user}/${GH.repo}`;
+    setStatus('loading', 'Fetching data.json…');
+    await loadDataJSON();
+    populateForms();
+    setStatus('saved', 'Loaded');
+  }
+
+  async function loadDataJSON() {
+    const res = await ghFetch(`contents/data.json`);
+    if (!res.ok) { setStatus('error', 'data.json not found'); return; }
+    const json = await res.json();
+    fileSHA = json.sha;
+    DATA = JSON.parse(atob(json.content.replace(/\n/g, '')));
+  }
+
+  // ── GitHub API ─────────────────────────────────────────────────────────────
+  function ghFetch(path, opts = {}) {
+    return fetch(`https://api.github.com/repos/${GH.user}/${GH.repo}/${path}`, {
+      ...opts,
+      headers: {
+        Authorization: `Bearer ${GH.pat}`,
+        Accept: 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+        ...(opts.headers || {})
+      }
+    });
+  }
+
+  async function publishToGitHub() {
+    const btn = document.getElementById('publish-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Publishing…';
+    collectFormData();
+
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(DATA, null, 2))));
+    const body = { message: 'chore: update portfolio data', content, sha: fileSHA };
+    const res = await ghFetch('contents/data.json', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      fileSHA = data.content.sha;
+      showToast('Published successfully! GitHub Pages rebuilding…', 'success');
+      setStatus('saved', 'Published');
+    } else {
+      const err = await res.json();
+      showToast('Error: ' + (err.message || 'Failed'), 'error');
+      setStatus('error', 'Publish failed');
+    }
+
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-brands fa-github"></i> Publish Changes';
+  }
+
+  // ── Form Population ────────────────────────────────────────────────────────
+  function populateForms() {
+    const d = DATA;
+    // Hero
+    document.getElementById('hero-greeting').value = d.hero.greeting;
+    document.getElementById('hero-firstName').value = d.hero.firstName;
+    document.getElementById('hero-lastName').value = d.hero.lastName;
+    document.getElementById('hero-subtitle').value = d.hero.subtitle;
+    // About
+    document.getElementById('about-bio').value = d.about.bio;
+    document.getElementById('about-edu-institution').value = d.about.education.institution;
+    document.getElementById('about-edu-degree').value = d.about.education.degree;
+    document.getElementById('about-edu-period').value = d.about.education.period;
+    document.getElementById('about-exp-role').value = d.about.experience.role;
+    document.getElementById('about-exp-place').value = d.about.experience.place;
+    document.getElementById('about-exp-period').value = d.about.experience.period;
+    document.getElementById('about-rating').value = d.about.competitive.rating;
+    document.getElementById('about-platform').value = d.about.competitive.platform;
+    document.getElementById('about-comp-desc').value = d.about.competitive.desc;
+    document.getElementById('about-comp-period').value = d.about.competitive.period;
+    // Skills
+    renderSkillsEditor();
+    // Projects
+    renderProjectsEditor();
+    // Contact
+    document.getElementById('contact-email').value = d.contact.email;
+    document.getElementById('contact-phone').value = d.contact.phone;
+    document.getElementById('contact-github').value = d.contact.github;
+    document.getElementById('contact-linkedin').value = d.contact.linkedin;
+  }
+
+  // ── Collect All Form Data Into DATA ───────────────────────────────────────
+  function collectFormData() {
+    DATA.hero.greeting = document.getElementById('hero-greeting').value;
+    DATA.hero.firstName = document.getElementById('hero-firstName').value;
+    DATA.hero.lastName = document.getElementById('hero-lastName').value;
+    DATA.hero.subtitle = document.getElementById('hero-subtitle').value;
+
+    DATA.about.bio = document.getElementById('about-bio').value;
+    DATA.about.education.institution = document.getElementById('about-edu-institution').value;
+    DATA.about.education.degree = document.getElementById('about-edu-degree').value;
+    DATA.about.education.period = document.getElementById('about-edu-period').value;
+    DATA.about.experience.role = document.getElementById('about-exp-role').value;
+    DATA.about.experience.place = document.getElementById('about-exp-place').value;
+    DATA.about.experience.period = document.getElementById('about-exp-period').value;
+    DATA.about.competitive.rating = document.getElementById('about-rating').value;
+    DATA.about.competitive.platform = document.getElementById('about-platform').value;
+    DATA.about.competitive.desc = document.getElementById('about-comp-desc').value;
+    DATA.about.competitive.period = document.getElementById('about-comp-period').value;
+
+    DATA.contact.email = document.getElementById('contact-email').value;
+    DATA.contact.phone = document.getElementById('contact-phone').value;
+    DATA.contact.github = document.getElementById('contact-github').value;
+    DATA.contact.linkedin = document.getElementById('contact-linkedin').value;
+
+    // Skills collected in renderSkillsEditor save callbacks
+    // Projects collected in renderProjectsEditor save callbacks
+  }
+
+  // ── Skills Editor ──────────────────────────────────────────────────────────
+  function renderSkillsEditor() {
+    const list = document.getElementById('skills-list');
+    list.innerHTML = DATA.skills.map((s, i) => `
+      <div class="skill-row">
+        <input type="text" value="${s.label}" placeholder="Label"
+          onchange="DATA.skills[${i}].label = this.value">
+        <input type="text" value="${s.icon}" placeholder="devicon-react-original colored"
+          onchange="DATA.skills[${i}].icon = this.value">
+        <input type="color" value="${s.color}"
+          style="width:100%;height:36px;border-radius:8px;border:none;background:none;cursor:pointer"
+          onchange="DATA.skills[${i}].color = this.value">
+        <button class="btn btn-danger btn-sm" onclick="removeSkill(${i})"><i class="fa-solid fa-trash"></i></button>
+      </div>
+    `).join('');
+  }
+
+  function addSkill() {
+    DATA.skills.push({ icon: 'devicon-github-original colored', color: '#888', label: 'New' });
+    renderSkillsEditor();
+  }
+
+  function removeSkill(i) {
+    DATA.skills.splice(i, 1);
+    renderSkillsEditor();
+  }
+
+  // ── Projects Editor ────────────────────────────────────────────────────────
+  function renderProjectsEditor() {
+    const list = document.getElementById('projects-list');
+    list.innerHTML = DATA.projects.map((p, i) => `
+      <div class="project-admin-card">
+        <div class="project-admin-header">
+          <span class="project-admin-title">${p.title || 'Untitled'}</span>
+          <div class="project-actions">
+            <label class="toggle-switch" title="Show/Hide on portfolio">
+              <input type="checkbox" ${p.visible ? 'checked' : ''}
+                onchange="DATA.projects[${i}].visible = this.checked">
+              <span class="toggle-slider"></span>
+            </label>
+            <button class="btn btn-danger btn-sm" onclick="removeProject(${i})">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Title</label>
+            <input type="text" value="${p.title}"
+              oninput="DATA.projects[${i}].title=this.value; this.closest('.project-admin-card').querySelector('.project-admin-title').textContent=this.value">
+          </div>
+          <div class="field">
+            <label>Date</label>
+            <input type="text" value="${p.date}" onchange="DATA.projects[${i}].date=this.value">
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="field">
+            <label>Description</label>
+            <textarea onchange="DATA.projects[${i}].description=this.value">${p.description}</textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Live URL</label>
+            <input type="url" value="${p.live}" onchange="DATA.projects[${i}].live=this.value">
+          </div>
+          <div class="field">
+            <label>GitHub URL</label>
+            <input type="url" value="${p.github}" onchange="DATA.projects[${i}].github=this.value">
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="field">
+            <label>Tech Stack (comma separated)</label>
+            <input type="text" value="${p.tech.join(', ')}"
+              onchange="DATA.projects[${i}].tech=this.value.split(',').map(t=>t.trim()).filter(Boolean)">
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function addProject() {
+    DATA.projects.push({
+      id: 'project-' + Date.now(),
+      title: 'New Project', date: '', description: '',
+      tech: [], live: '', github: '', visible: true
+    });
+    renderProjectsEditor();
+    // scroll to bottom
+    document.getElementById('projects-list').lastElementChild.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function removeProject(i) {
+    if (!confirm(`Remove "${DATA.projects[i].title}"?`)) return;
+    DATA.projects.splice(i, 1);
+    renderProjectsEditor();
+  }
+
+  // ── GitHub Repo Import ─────────────────────────────────────────────────────
+  async function fetchRepos() {
+    const grid = document.getElementById('repos-grid');
+    grid.innerHTML = '<div class="empty-state"><span class="spinner"></span> Fetching repos…</div>';
+    const res = await fetch(`https://api.github.com/users/${GH.user}/repos?per_page=100&sort=updated`, {
+      headers: { Authorization: `Bearer ${GH.pat}` }
+    });
+    const repos = await res.json();
+
+    const existingGH = DATA.projects.map(p => p.github);
+
+    const langColors = {
+      JavaScript: '#F7DF1E', Python: '#3776AB', HTML: '#E34F26',
+      CSS: '#1572B6', TypeScript: '#3178C6', 'C++': '#00599C', C: '#555555'
+    };
+
+    grid.innerHTML = repos.map(r => {
+      const alreadyAdded = existingGH.includes(r.html_url);
+      const color = langColors[r.language] || '#888';
+      return `
+        <div class="repo-card ${alreadyAdded ? 'selected' : ''}" onclick="importRepo(this, ${JSON.stringify(r).replace(/"/g, '&quot;')})">
+          <h4>${r.name}</h4>
+          <p>${r.description || 'No description'}</p>
+          <div class="repo-meta">
+            ${r.language ? `<span class="repo-lang"><span class="lang-dot" style="background:${color}"></span>${r.language}</span>` : ''}
+            <span>⭐ ${r.stargazers_count}</span>
+            ${alreadyAdded ? '<span style="color:var(--accent)">✓ Added</span>' : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function importRepo(el, repo) {
+    const alreadyAdded = DATA.projects.find(p => p.github === repo.html_url);
+    if (alreadyAdded) { showToast('Already in projects list.', 'error'); return; }
+    DATA.projects.push({
+      id: repo.name.toLowerCase().replace(/\s+/g, '-'),
+      title: repo.name,
+      date: new Date(repo.created_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
+      description: repo.description || '',
+      tech: repo.language ? [repo.language] : [],
+      live: repo.homepage || '',
+      github: repo.html_url,
+      visible: true
+    });
+    el.classList.add('selected');
+    el.querySelector('.repo-meta').innerHTML += '<span style="color:var(--accent)">✓ Added</span>';
+    showToast(`"${repo.name}" added to projects. Edit it in Projects tab.`, 'success');
+  }
+
+  // ── Navigation ─────────────────────────────────────────────────────────────
+  function showPanel(name) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // ── Utilities ──────────────────────────────────────────────────────────────
+  function setStatus(type, msg) {
+    const dot = document.getElementById('status-dot');
+    const text = document.getElementById('status-text');
+    dot.className = 'status-dot ' + type;
+    text.textContent = msg;
+  }
+
+  function showToast(msg, type = 'success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = `toast ${type} show`;
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  // ── Auto-restore session ───────────────────────────────────────────────────
+  const saved = localStorage.getItem('admin_gh');
+  if (saved) {
+    try {
+      GH = JSON.parse(saved);
+      document.getElementById('input-username').value = GH.user;
+      document.getElementById('input-repo').value = GH.repo;
+      initApp();
+    } catch (e) { localStorage.removeItem('admin_gh'); }
+  }
+</script>
+</body>
+</html>

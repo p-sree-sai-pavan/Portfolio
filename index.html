@@ -33,22 +33,16 @@
 
     <section id="home" class="herosection">
         <div class="hero-content">
-            <h3 class="greeting">HELLO!</h3>
-            <h1 class="main-title">
-                I'm <span class="highlight">Pittala</span><br>
-                <span class="highlight">Sree Sai Pavan.</span>
-            </h1>
-            <h2 class="subtitle">Frontend Web Developer</h2>
-
+            <h3 class="greeting" id="hero-greeting"></h3>
+            <h1 class="main-title" id="hero-title"></h1>
+            <h2 class="subtitle" id="hero-subtitle"></h2>
             <div class="homebuttons">
                 <button class="btn-primary"
-                    onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">My
-                    Projects</button>
-                <button class="btn-secondary" class="btn-primary"
+                    onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">My Projects</button>
+                <button class="btn-secondary"
                     onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
             </div>
         </div>
-
         <div class="hero-image">
             <img src="your-photo.jpg" alt="Profile Picture">
         </div>
@@ -58,215 +52,43 @@
         <div class="aboutsection">
             <h3>ABOUT:</h3>
             <h1>Building thoughtful web experiences while learning.</h1>
-            <p>I'm a second-year B.Tech student at IIT Guwahati exploring web development through hands-on projects. I
-                enjoy creating interactive applications that solve real problems, from algorithm visualizers to circuit
-                analyzers. Currently learning modern web technologies while balancing academics and contributing to
-                institute web projects.</p>
+            <p id="about-bio"></p>
         </div>
         <div class="aboutachivements">
             <div class="abouteducation">
                 <h3>Education</h3>
-                <h4>Indian Institute of Technology, Guwahati</h4>
-                <p>B.Tech in Electronics and Communication Engineering | 2024 - Present</p>
+                <h4 id="about-edu-institution"></h4>
+                <p id="about-edu-detail"></p>
             </div>
             <div class="aboutexperience">
                 <h3>Experience</h3>
-                <h4>Junior Web - Developer</h4>
-                <p>at students Web Commitee | 2025 - Present</p>
+                <h4 id="about-exp-role"></h4>
+                <p id="about-exp-detail"></p>
             </div>
             <div class="aboutrating">
-                <h3>1130 Rating</h3>
-                <h4>Codeforces</h4>
-                <p>givving contests on codeforces | 2025 - Present</p>
+                <h3 id="about-rating"></h3>
+                <h4 id="about-platform"></h4>
+                <p id="about-competitive-detail"></p>
             </div>
         </div>
     </section>
 
     <section class="techstacks">
         <h2>Frameworks & Tools</h2>
-        <section class="vite-grid">
-            <div class="tech-tile" style="--color: #5ac5ff">
-                <i class="devicon-cplusplus-plain colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #fff151">
-                <i class="devicon-python-plain colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #5ac5ff">
-                <i class="devicon-c-plain colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #61DAFB">
-                <i class="devicon-react-original colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #F7DF1E">
-                <i class="devicon-javascript-plain colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #E34F26">
-                <i class="devicon-html5-plain colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #2965f1">
-                <i class="devicon-css3-plain colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #F05032">
-                <i class="devicon-git-plain colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #6fdbff">
-                <i class="devicon-numpy-plain colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #a48dff">
-                <i class="devicon-pandas-plain colored"></i>
-            </div>
-            <div class="tech-tile" style="--color: #61DAFB">
-                <i class="devicon-matplotlib-plain colored"></i>
-            </div>
-
-        </section>
+        <section class="vite-grid" id="skills-grid"></section>
     </section>
-
 
     <section id="projects" class="projects">
         <h1>Featured Projects</h1>
-        <div class="projectcontainer">
-            <div class="projectcard">
-                <div class="projecthead">
-                    <h3>Circuit Analyser</h3>
-                    <div class="date">Nov - 2025</div>
-                </div>
-                <p>– Developed a web application for analyzing electrical circuits with instant voltage and current
-                    calculations using React frontend, Node.js backend, and Python computational engine.</p>
-                <p>– Implemented graph-based algorithms and equation solvers integrated with the backend API, returning
-                    formatted mathematical expressions and dynamically generated circuit plots.</p>
-                <ul>
-                    <li class="techused">HTML</li>
-                    <li class="techused">CSS</li>
-                    <li class="techused">JS</li>
-                    <li class="techused">React</li>
-                    <li class="techused">python</li>
-                </ul>
-                <div class="projectlinks">
-                    <a href="https://github.com/p-sree-sai-pavan/Circuit-Theory">Git Hub</a>
-                </div>
-            </div>
-            <div class="projectcard">
-                <div class="projecthead">
-                    <h3>Algo Visualiser</h3>
-                    <div class="date">Dec - 2025</div>
-                </div>
-                <p>The Sorting Algorithm Visualizer is an educational web application designed to help students,
-                    educators, and developers understand how different sorting algorithms work. Watch algorithms sort
-                    data step-by-step with smooth animations, adjustable speed controls, and interactive features.</p>
-                <ul>
-                    <li class="techused">HTML</li>
-                    <li class="techused">CSS</li>
-                    <li class="techused">JS</li>
-                    <li class="techused">React</li>
-                </ul>
-                <div class="projectlinks">
-                    <a href="https://p-sree-sai-pavan.github.io/Sorting-Algorithm-Visualizer/">live demo</a>
-                    <a href="https://github.com/p-sree-sai-pavan/Sorting-Algorithm-Visualizer">Git Hub</a>
-                </div>
-            </div>
-            <div class="projectcard">
-                <div class="projecthead">
-                    <h3>Portfolio</h3>
-                    <div class="date">Dec - 2025</div>
-                </div>
-                <p>A personal portfolio website for Pittala Sree Sai Pavan, a Frontend Web Developer and B.Tech ECE
-                    student at IIT Guwahati. Built with HTML5, CSS3, featuring a modern dark theme, responsive design,
-                    and smooth scroll navigation. Showcases skills, projects, education, and experience with an elegant
-                    minimal UI.</p>
-                <ul>
-                    <li class="techused">HTML</li>
-                    <li class="techused">CSS</li>
-                </ul>
-                <div class="projectlinks">
-                    <a href="https://p-sree-sai-pavan.github.io/Portfolio/">live demo</a>
-                    <a href="https://github.com/p-sree-sai-pavan/Portfolio">Git Hub</a>
-                </div>
-            </div>
-            <div class="projectcard">
-                <div class="projecthead">
-                    <h3>HabitFlow</h3>
-                    <div class="date">Dec - 2025</div>
-                </div>
-                <p>being a Vibecoding enthusiast, Designed a modern web app that helps users build consistent routines
-                    through gamification.</p>
-                <p> Implemented a GitHub‑style activity heatmap to track daily progress and streaks.Focused on intuitive
-                    design and responsive layouts for a seamless user experience across devices.</p>
-                <ul>
-                    <li class="techused">HTML</li>
-                    <li class="techused">CSS</li>
-                    <li class="techused">JS</li>
-                    <li class="techused">React</li>
-                    <li class="techused">Firebase</li>
-                </ul>
-                <div class="projectlinks">
-                    <a href="https://habitflow-6da66.web.app/">live demo</a>
-                    <a href="https://github.com/p-sree-sai-pavan/HabitFlow">Git Hub</a>
-                </div>
-            </div>
-            <div class="projectcard">
-                <div class="projecthead">
-                    <h3>RecipeFinder</h3>
-                    <div class="date">Dec - 2025</div>
-                </div>
-                <p>Recipe Finder is a sleek, responsive web application that helps you discover delicious recipes from
-                    around the world. Powered by TheMealDB API, it offers a seamless experience to browse, search, and
-                    explore recipes with detailed ingredients and cooking instructions.</p>
-                <ul>
-                    <li class="techused">HTML</li>
-                    <li class="techused">CSS</li>
-                    <li class="techused">JS</li>
-                    <li class="techused">React</li>
-                    <li class="techused">Firebase</li>
-                </ul>
-                <div class="projectlinks">
-                    <a href="https://p-sree-sai-pavan.github.io/SWC-Task-recipe-app-/">live demo</a>
-                    <a href="https://github.com/p-sree-sai-pavan/SWC-Task-recipe-app-">Git Hub</a>
-                </div>
-            </div>
-            <div class="projectcard">
-                <div class="projecthead">
-                    <h3>MovieWebsite</h3>
-                    <div class="date">Dec - 2025</div>
-                </div>
-                <p>A fully responsive, Netflix-inspired movie discovery platform built entirely with vanilla HTML, CSS,
-                    and JavaScript. This project demonstrates modern frontend development skills without relying on any
-                    external frameworks.</p>
-                <ul>
-                    <li class="techused">HTML</li>
-                    <li class="techused">CSS</li>
-                    <li class="techused">JS</li>
-                </ul>
-                <div class="projectlinks">
-                    <a href="https://p-sree-sai-pavan.github.io/Movie_Website/">live demo</a>
-                    <a href="https://github.com/p-sree-sai-pavan/Movie_Website">Git Hub</a>
-                </div>
-            </div>
-        </div>
+        <div class="projectcontainer" id="projects-container"></div>
     </section>
 
     <section id="contact" class="contact">
         <h5>Get in touch</h5>
         <h2>Let's work together</h2>
-        <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is
-            always open.</p>
-        <div class="contactlinks">
-            <a href="mailto:pavan90507@gmail.com">
-                <i class="fa-solid fa-envelope"></i> pavan90507@gmail.com
-            </a>
-            <a href="https://github.com/p-sree-sai-pavan">
-                <i class="fa-brands fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/sree-sai-pavan-pittala-61a284365">
-                <i class="fa-brands fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="tel:+917893390507" class="contact-link">
-                <i class="fa-solid fa-phone"></i> +91 78933 90507
-            </a>
-            <footer>
-                &copy; 2025 Pittala Sree Sai Pavan. All rights reserved.
-            </footer>
-        </div>
+        <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open.</p>
+        <div class="contactlinks" id="contact-links"></div>
+        <footer>&copy; 2025 Pittala Sree Sai Pavan. All rights reserved.</footer>
     </section>
 
     <script>
@@ -279,13 +101,77 @@
             navcomponents.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
         document.querySelectorAll('.navcomponents a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navcomponents.classList.remove('active');
             });
         });
+
+        // ─── Render from data.json ───────────────────────────────────────────
+
+        async function loadPortfolio() {
+            const res = await fetch('data.json?t=' + Date.now());
+            const d = await res.json();
+
+            // Hero
+            document.getElementById('hero-greeting').textContent = d.hero.greeting;
+            document.getElementById('hero-title').innerHTML =
+                `I'm <span class="highlight">${d.hero.firstName}</span><br>
+                 <span class="highlight">${d.hero.lastName}</span>`;
+            document.getElementById('hero-subtitle').textContent = d.hero.subtitle;
+
+            // About
+            document.getElementById('about-bio').textContent = d.about.bio;
+            document.getElementById('about-edu-institution').textContent = d.about.education.institution;
+            document.getElementById('about-edu-detail').textContent =
+                `${d.about.education.degree} | ${d.about.education.period}`;
+            document.getElementById('about-exp-role').textContent = d.about.experience.role;
+            document.getElementById('about-exp-detail').textContent =
+                `at ${d.about.experience.place} | ${d.about.experience.period}`;
+            document.getElementById('about-rating').textContent = `${d.about.competitive.rating} Rating`;
+            document.getElementById('about-platform').textContent = d.about.competitive.platform;
+            document.getElementById('about-competitive-detail').textContent =
+                `${d.about.competitive.desc} | ${d.about.competitive.period}`;
+
+            // Skills
+            const skillsGrid = document.getElementById('skills-grid');
+            skillsGrid.innerHTML = d.skills.map(s => `
+                <div class="tech-tile" style="--color: ${s.color}">
+                    <i class="${s.icon}"></i>
+                </div>
+            `).join('');
+
+            // Projects
+            const container = document.getElementById('projects-container');
+            container.innerHTML = d.projects
+                .filter(p => p.visible)
+                .map(p => `
+                    <div class="projectcard">
+                        <div class="projecthead">
+                            <h3>${p.title}</h3>
+                            <div class="date">${p.date}</div>
+                        </div>
+                        <p>${p.description}</p>
+                        <ul>${p.tech.map(t => `<li class="techused">${t}</li>`).join('')}</ul>
+                        <div class="projectlinks">
+                            ${p.live ? `<a href="${p.live}" target="_blank">live demo</a>` : ''}
+                            ${p.github ? `<a href="${p.github}" target="_blank">GitHub</a>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+
+            // Contact
+            const cl = d.contact;
+            document.getElementById('contact-links').innerHTML = `
+                <a href="mailto:${cl.email}"><i class="fa-solid fa-envelope"></i> ${cl.email}</a>
+                <a href="${cl.github}" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="${cl.linkedin}" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="tel:${cl.phone}"><i class="fa-solid fa-phone"></i> ${cl.phone}</a>
+            `;
+        }
+
+        loadPortfolio();
     </script>
 </body>
 
