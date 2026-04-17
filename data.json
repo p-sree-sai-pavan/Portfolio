@@ -25,17 +25,61 @@
     }
   },
   "skills": [
-    { "icon": "devicon-cplusplus-plain colored", "color": "#5ac5ff", "label": "C++" },
-    { "icon": "devicon-python-plain colored", "color": "#fff151", "label": "Python" },
-    { "icon": "devicon-c-plain colored", "color": "#5ac5ff", "label": "C" },
-    { "icon": "devicon-react-original colored", "color": "#61DAFB", "label": "React" },
-    { "icon": "devicon-javascript-plain colored", "color": "#F7DF1E", "label": "JavaScript" },
-    { "icon": "devicon-html5-plain colored", "color": "#E34F26", "label": "HTML5" },
-    { "icon": "devicon-css3-plain colored", "color": "#2965f1", "label": "CSS3" },
-    { "icon": "devicon-git-plain colored", "color": "#F05032", "label": "Git" },
-    { "icon": "devicon-numpy-plain colored", "color": "#6fdbff", "label": "NumPy" },
-    { "icon": "devicon-pandas-plain colored", "color": "#a48dff", "label": "Pandas" },
-    { "icon": "devicon-matplotlib-plain colored", "color": "#61DAFB", "label": "Matplotlib" }
+    {
+      "icon": "devicon-cplusplus-plain colored",
+      "color": "#5ac5ff",
+      "label": "C++"
+    },
+    {
+      "icon": "devicon-python-plain colored",
+      "color": "#fff151",
+      "label": "Python"
+    },
+    {
+      "icon": "devicon-c-plain colored",
+      "color": "#5ac5ff",
+      "label": "C"
+    },
+    {
+      "icon": "devicon-react-original colored",
+      "color": "#61DAFB",
+      "label": "React"
+    },
+    {
+      "icon": "devicon-javascript-plain colored",
+      "color": "#F7DF1E",
+      "label": "JavaScript"
+    },
+    {
+      "icon": "devicon-html5-plain colored",
+      "color": "#E34F26",
+      "label": "HTML5"
+    },
+    {
+      "icon": "devicon-css3-plain colored",
+      "color": "#2965f1",
+      "label": "CSS3"
+    },
+    {
+      "icon": "devicon-git-plain colored",
+      "color": "#F05032",
+      "label": "Git"
+    },
+    {
+      "icon": "devicon-numpy-plain colored",
+      "color": "#6fdbff",
+      "label": "NumPy"
+    },
+    {
+      "icon": "devicon-pandas-plain colored",
+      "color": "#a48dff",
+      "label": "Pandas"
+    },
+    {
+      "icon": "devicon-matplotlib-plain colored",
+      "color": "#61DAFB",
+      "label": "Matplotlib"
+    }
   ],
   "projects": [
     {
@@ -43,7 +87,13 @@
       "title": "Circuit Analyser",
       "date": "Nov - 2025",
       "description": "Developed a web application for analyzing electrical circuits with instant voltage and current calculations using React frontend, Node.js backend, and Python computational engine. Implemented graph-based algorithms and equation solvers integrated with the backend API, returning formatted mathematical expressions and dynamically generated circuit plots.",
-      "tech": ["HTML", "CSS", "JS", "React", "Python"],
+      "tech": [
+        "HTML",
+        "CSS",
+        "JS",
+        "React",
+        "Python"
+      ],
       "live": "",
       "github": "https://github.com/p-sree-sai-pavan/Circuit-Theory",
       "visible": true
@@ -53,7 +103,12 @@
       "title": "Algo Visualiser",
       "date": "Dec - 2025",
       "description": "The Sorting Algorithm Visualizer is an educational web application designed to help students, educators, and developers understand how different sorting algorithms work. Watch algorithms sort data step-by-step with smooth animations, adjustable speed controls, and interactive features.",
-      "tech": ["HTML", "CSS", "JS", "React"],
+      "tech": [
+        "HTML",
+        "CSS",
+        "JS",
+        "React"
+      ],
       "live": "https://p-sree-sai-pavan.github.io/Sorting-Algorithm-Visualizer/",
       "github": "https://github.com/p-sree-sai-pavan/Sorting-Algorithm-Visualizer",
       "visible": true
@@ -63,7 +118,10 @@
       "title": "Portfolio",
       "date": "Dec - 2025",
       "description": "A personal portfolio website for Pittala Sree Sai Pavan, a Frontend Web Developer and B.Tech ECE student at IIT Guwahati. Built with HTML5, CSS3, featuring a modern dark theme, responsive design, and smooth scroll navigation. Showcases skills, projects, education, and experience with an elegant minimal UI.",
-      "tech": ["HTML", "CSS"],
+      "tech": [
+        "HTML",
+        "CSS"
+      ],
       "live": "https://p-sree-sai-pavan.github.io/Portfolio/",
       "github": "https://github.com/p-sree-sai-pavan/Portfolio",
       "visible": true
@@ -73,7 +131,13 @@
       "title": "HabitFlow",
       "date": "Dec - 2025",
       "description": "Being a Vibecoding enthusiast, designed a modern web app that helps users build consistent routines through gamification. Implemented a GitHub-style activity heatmap to track daily progress and streaks. Focused on intuitive design and responsive layouts for a seamless user experience across devices.",
-      "tech": ["HTML", "CSS", "JS", "React", "Firebase"],
+      "tech": [
+        "HTML",
+        "CSS",
+        "JS",
+        "React",
+        "Firebase"
+      ],
       "live": "https://habitflow-6da66.web.app/",
       "github": "https://github.com/p-sree-sai-pavan/HabitFlow",
       "visible": true
@@ -83,7 +147,13 @@
       "title": "RecipeFinder",
       "date": "Dec - 2025",
       "description": "Recipe Finder is a sleek, responsive web application that helps you discover delicious recipes from around the world. Powered by TheMealDB API, it offers a seamless experience to browse, search, and explore recipes with detailed ingredients and cooking instructions.",
-      "tech": ["HTML", "CSS", "JS", "React", "Firebase"],
+      "tech": [
+        "HTML",
+        "CSS",
+        "JS",
+        "React",
+        "Firebase"
+      ],
       "live": "https://p-sree-sai-pavan.github.io/SWC-Task-recipe-app-/",
       "github": "https://github.com/p-sree-sai-pavan/SWC-Task-recipe-app-",
       "visible": true
@@ -93,9 +163,89 @@
       "title": "MovieWebsite",
       "date": "Dec - 2025",
       "description": "A fully responsive, Netflix-inspired movie discovery platform built entirely with vanilla HTML, CSS, and JavaScript. This project demonstrates modern frontend development skills without relying on any external frameworks.",
-      "tech": ["HTML", "CSS", "JS"],
+      "tech": [
+        "HTML",
+        "CSS",
+        "JS"
+      ],
       "live": "https://p-sree-sai-pavan.github.io/Movie_Website/",
       "github": "https://github.com/p-sree-sai-pavan/Movie_Website",
+      "visible": true
+    },
+    {
+      "id": "project-1776407902365",
+      "title": "P.A.R.K.E.R",
+      "date": "Feb-2026",
+      "description": "Architected a 4-layer persistent memory system (profile, facts, projects, episodic) backed by PostgreSQL + pgvec\ntor, with importance-tiered retrieval and automatic archival of stale entries; memory stored as structured JSON\nextracted by an LLM — raw transcripts never persisted.– Built a 5-level temporal rollup pipeline (chat → day → week → month → year) on ISO calendar boundaries,\nrunning on background threads with per-namespace write locks, orchestrated by a LangGraph state machine with\na trigger gate that skips retrieval on casual messages to keep latency near zero.",
+      "tech": [
+        "LangChain",
+        "LangGraph",
+        "pgvector",
+        "PostgreSQL",
+        "SQLite"
+      ],
+      "live": "",
+      "github": "https://github.com/p-sree-sai-pavan/P.A.R.K.E.R",
+      "visible": true
+    },
+    {
+      "id": "b.e.n",
+      "title": "B.E.N",
+      "date": "Apr 2026",
+      "description": "",
+      "tech": [
+        "Python"
+      ],
+      "live": "",
+      "github": "https://github.com/p-sree-sai-pavan/B.E.N",
+      "visible": true
+    },
+    {
+      "id": "chess",
+      "title": "Chess",
+      "date": "Apr 2026",
+      "description": "",
+      "tech": [
+        "C++"
+      ],
+      "live": "",
+      "github": "https://github.com/p-sree-sai-pavan/Chess",
+      "visible": true
+    },
+    {
+      "id": "huffman_text_compressor",
+      "title": "Huffman_Text_Compressor",
+      "date": "Apr 2026",
+      "description": "",
+      "tech": [
+        "C++"
+      ],
+      "live": "",
+      "github": "https://github.com/p-sree-sai-pavan/Huffman_Text_Compressor",
+      "visible": true
+    },
+    {
+      "id": "ojsystem",
+      "title": "OJSystem",
+      "date": "Apr 2026",
+      "description": "",
+      "tech": [
+        "C++"
+      ],
+      "live": "",
+      "github": "https://github.com/p-sree-sai-pavan/OJSystem",
+      "visible": true
+    },
+    {
+      "id": "gitlite",
+      "title": "GitLite",
+      "date": "Apr 2026",
+      "description": "",
+      "tech": [
+        "C++"
+      ],
+      "live": "",
+      "github": "https://github.com/p-sree-sai-pavan/GitLite",
       "visible": true
     }
   ],
@@ -103,6 +253,6 @@
     "email": "pavan90507@gmail.com",
     "phone": "+91 78933 90507",
     "github": "https://github.com/p-sree-sai-pavan",
-    "linkedin": "https://www.linkedin.com/in/sree-sai-pavan-pittala-61a284365"
+    "linkedin": "https://www.linkedin.com/in/ssp09"
   }
 }
