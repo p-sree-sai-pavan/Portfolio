@@ -114,19 +114,6 @@
       "visible": true
     },
     {
-      "id": "portfolio",
-      "title": "Portfolio",
-      "date": "Dec - 2025",
-      "description": "A personal portfolio website for Pittala Sree Sai Pavan, a Frontend Web Developer and B.Tech ECE student at IIT Guwahati. Built with HTML5, CSS3, featuring a modern dark theme, responsive design, and smooth scroll navigation. Showcases skills, projects, education, and experience with an elegant minimal UI.",
-      "tech": [
-        "HTML",
-        "CSS"
-      ],
-      "live": "https://p-sree-sai-pavan.github.io/Portfolio/",
-      "github": "https://github.com/p-sree-sai-pavan/Portfolio",
-      "visible": false
-    },
-    {
       "id": "habitflow",
       "title": "HabitFlow",
       "date": "Dec - 2025",
