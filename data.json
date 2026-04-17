@@ -124,7 +124,7 @@
       ],
       "live": "https://p-sree-sai-pavan.github.io/Portfolio/",
       "github": "https://github.com/p-sree-sai-pavan/Portfolio",
-      "visible": true
+      "visible": false
     },
     {
       "id": "habitflow",
@@ -156,7 +156,7 @@
       ],
       "live": "https://p-sree-sai-pavan.github.io/SWC-Task-recipe-app-/",
       "github": "https://github.com/p-sree-sai-pavan/SWC-Task-recipe-app-",
-      "visible": true
+      "visible": false
     },
     {
       "id": "moviewebsite",
@@ -170,7 +170,7 @@
       ],
       "live": "https://p-sree-sai-pavan.github.io/Movie_Website/",
       "github": "https://github.com/p-sree-sai-pavan/Movie_Website",
-      "visible": true
+      "visible": false
     },
     {
       "id": "project-1776407902365",
