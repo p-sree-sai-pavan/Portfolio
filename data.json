@@ -83,83 +83,6 @@
   ],
   "projects": [
     {
-      "id": "circuit-analyser",
-      "title": "Circuit Analyser",
-      "date": "Nov - 2025",
-      "description": "Developed a web application for analyzing electrical circuits with instant voltage and current calculations using React frontend, Node.js backend, and Python computational engine. Implemented graph-based algorithms and equation solvers integrated with the backend API, returning formatted mathematical expressions and dynamically generated circuit plots.",
-      "tech": [
-        "HTML",
-        "CSS",
-        "JS",
-        "React",
-        "Python"
-      ],
-      "live": "",
-      "github": "https://github.com/p-sree-sai-pavan/Circuit-Theory",
-      "visible": true
-    },
-    {
-      "id": "algo-visualiser",
-      "title": "Algo Visualiser",
-      "date": "Dec - 2025",
-      "description": "The Sorting Algorithm Visualizer is an educational web application designed to help students, educators, and developers understand how different sorting algorithms work. Watch algorithms sort data step-by-step with smooth animations, adjustable speed controls, and interactive features.",
-      "tech": [
-        "HTML",
-        "CSS",
-        "JS",
-        "React"
-      ],
-      "live": "https://p-sree-sai-pavan.github.io/Sorting-Algorithm-Visualizer/",
-      "github": "https://github.com/p-sree-sai-pavan/Sorting-Algorithm-Visualizer",
-      "visible": true
-    },
-    {
-      "id": "habitflow",
-      "title": "HabitFlow",
-      "date": "Dec - 2025",
-      "description": "Being a Vibecoding enthusiast, designed a modern web app that helps users build consistent routines through gamification. Implemented a GitHub-style activity heatmap to track daily progress and streaks. Focused on intuitive design and responsive layouts for a seamless user experience across devices.",
-      "tech": [
-        "HTML",
-        "CSS",
-        "JS",
-        "React",
-        "Firebase"
-      ],
-      "live": "https://habitflow-6da66.web.app/",
-      "github": "https://github.com/p-sree-sai-pavan/HabitFlow",
-      "visible": true
-    },
-    {
-      "id": "recipefinder",
-      "title": "RecipeFinder",
-      "date": "Dec - 2025",
-      "description": "Recipe Finder is a sleek, responsive web application that helps you discover delicious recipes from around the world. Powered by TheMealDB API, it offers a seamless experience to browse, search, and explore recipes with detailed ingredients and cooking instructions.",
-      "tech": [
-        "HTML",
-        "CSS",
-        "JS",
-        "React",
-        "Firebase"
-      ],
-      "live": "https://p-sree-sai-pavan.github.io/SWC-Task-recipe-app-/",
-      "github": "https://github.com/p-sree-sai-pavan/SWC-Task-recipe-app-",
-      "visible": false
-    },
-    {
-      "id": "moviewebsite",
-      "title": "MovieWebsite",
-      "date": "Dec - 2025",
-      "description": "A fully responsive, Netflix-inspired movie discovery platform built entirely with vanilla HTML, CSS, and JavaScript. This project demonstrates modern frontend development skills without relying on any external frameworks.",
-      "tech": [
-        "HTML",
-        "CSS",
-        "JS"
-      ],
-      "live": "https://p-sree-sai-pavan.github.io/Movie_Website/",
-      "github": "https://github.com/p-sree-sai-pavan/Movie_Website",
-      "visible": false
-    },
-    {
       "id": "project-1776407902365",
       "title": "P.A.R.K.E.R",
       "date": "Feb-2026",
@@ -179,31 +102,19 @@
       "id": "b.e.n",
       "title": "B.E.N",
       "date": "Apr 2026",
-      "description": "",
+      "description": "BEN (Browser Execution Network) is a multi-agent AI system that autonomously completes browser-based tasks. It uses a planner → executor → responder pipeline built on LangGraph, where the planner breaks tasks into steps, browser-use executes them via a real browser, and the responder summarizes the outcome. Supports Gemini, OpenAI, and OpenRouter as LLM backends.",
       "tech": [
         "Python"
       ],
       "live": "",
       "github": "https://github.com/p-sree-sai-pavan/B.E.N",
-      "visible": true
-    },
-    {
-      "id": "chess",
-      "title": "Chess",
-      "date": "Apr 2026",
-      "description": "",
-      "tech": [
-        "C++"
-      ],
-      "live": "",
-      "github": "https://github.com/p-sree-sai-pavan/Chess",
-      "visible": true
+      "visible": false
     },
     {
       "id": "huffman_text_compressor",
       "title": "Huffman_Text_Compressor",
       "date": "Apr 2026",
-      "description": "",
+      "description": " Implemented a lossless file compressor in C++17 using Huffman Coding with min-heap tree construction and\nbit-level encoding/packing into a custom binary format.– Achieved ∼44% compression on a 100 MB text file; built full decompression pipeline with exact byte-for-byte\nrecovery and explicit padding handling for bit-stream alignment.",
       "tech": [
         "C++"
       ],
@@ -215,7 +126,7 @@
       "id": "ojsystem",
       "title": "OJSystem",
       "date": "Apr 2026",
-      "description": "",
+      "description": " Built a terminal-based online judge in C++17 + PostgreSQL via libpqxx, supporting problem browsing, per-test\ncase verdicts, and SHA-256 hash-based duplicate detection on submissions.– Engineered a sandboxed execution pipeline using fork(), exec(), and setrlimit() to enforce CPU (RLIMIT_CPU)\nand memory (RLIMIT_AS) limits; detects SIGSEGV/SIGABRT and captures g++ stderr for CE verdicts.– Implemented a producer–consumer judge queue using threads and mutexes; supports strict, float epsilon, and\ncustom checker output validation modes",
       "tech": [
         "C++"
       ],
@@ -227,7 +138,7 @@
       "id": "gitlite",
       "title": "GitLite",
       "date": "Apr 2026",
-      "description": "",
+      "description": " Built a fully functional version control system in C++17 from scratch, implementing content-addressable blob\nstorage and a commit DAG using SHA-256 hashing — mirroring Git’s internal object model.– Designed branching and HEAD as symbolic references with parent-link traversal for commit history, replicating\nreal-world VCS pointer semantics without any external library.– Developed an LCS-based diff algorithm for line-level change detection and staging index tracking across staged,\nmodified, and untracked file states",
       "tech": [
         "C++"
       ],
